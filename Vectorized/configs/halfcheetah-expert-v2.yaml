@@ -1,0 +1,15 @@
+# HalfCheetah Expert Environment Configuration for Vectorized Implementation
+# EMDSAC Vectorized Training Configuration
+
+# Experiment parameters
+policy: "EMDSAC"
+env: "halfcheetah-expert-v2"
+seed: 0
+eval_freq: 10000
+max_timesteps: 3000000
+save_model: true
+load_model: false
+save_plot: true
+batch_size: 256
+num_critics: 8
+device: 0

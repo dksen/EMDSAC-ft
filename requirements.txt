@@ -1,0 +1,22 @@
+# EMDSAC-ft Requirements
+# Core deep learning and machine learning packages
+torch>=1.9.0
+torchvision>=0.10.0
+numpy>=1.21.0
+scipy>=1.7.0
+mujoco-py>=2.0.0
+# Reinforcement learning and environment packages
+gym>=0.21.0
+d4rl>=1.1.0
+
+# Data processing and visualization
+pandas>=1.3.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Configuration and utilities
+pyyaml>=5.4.0
+tensorboard>=2.7.0
+tqdm>=4.62.0
+
+

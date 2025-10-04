@@ -1,0 +1,84 @@
+# Humanoid Medium Environment Configuration for Fine-tuning
+# EMDSACFT Independent Training Configuration
+
+# Key Parameters for users
+env_id: "gym_humanoid"
+datasets: "humanoid-medium-v2"
+algorithm: "EMDSACFT"
+enable_cuda: true
+device: "0"
+seed: null
+num_q_networks: 2
+ep_min: -2.0
+lamda: 0.2
+det: true
+
+# Parameters for environment
+reward_scale: 1.0
+action_type: "continu"
+is_render: false
+is_adversary: false
+
+# Parameters of value approximate function
+value_func_name: "ActionValueDistri"
+value_func_type: "MLP"
+value_hidden_sizes: [256, 256, 256]
+value_hidden_activation: "gelu"
+value_output_activation: "linear"
+value_min_log_std: -8
+value_max_log_std: 8
+
+# Parameters of policy approximate function
+policy_func_name: "StochaPolicy"
+policy_func_type: "MLP"
+policy_act_distribution: "TanhGaussDistribution"
+policy_hidden_sizes: [256, 256, 256]
+policy_hidden_activation: "gelu"
+policy_output_activation: "linear"
+policy_min_log_std: -20
+policy_max_log_std: 0.5
+
+# Parameters for RL algorithm
+value_learning_rate: 0.0001
+policy_learning_rate: 0.0001
+alpha_learning_rate: 0.0003
+gamma: 0.99
+tau: 0.005
+auto_alpha: true
+alpha: 0.2
+delay_update: 2
+update_frequency: 2
+TD_bound: 1.0
+bound: true
+
+# Parameters for trainer
+trainer: "off_serial_trainer"
+max_iteration: 300000
+utd_iteration: 300000
+utd: 5
+ini_network_dir: null
+
+# Parameters for off_serial_trainer
+buffer_name: "replay_buffer"
+buffer_warm_size: 2000000
+buffer_max_size: 2000000
+replay_batch_size: 256
+sample_interval: 1
+
+# Parameters for sampler
+sampler_name: "off_sampler"
+sample_batch_size: 20
+noise_params: null
+
+# Parameters for evaluator
+evaluator_name: "evaluator"
+num_eval_episode: 5
+eval_interval: 5000
+eval_save: false
+
+# Data savings
+save_folder: null
+apprfunc_save_interval: 1000000
+log_save_interval: 5000
+load_folder: null
+
